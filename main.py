@@ -86,7 +86,7 @@ def eval_fitness(generation, config):
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         bird.moveup()
-                                 
+                                
             pipe.display()
             bird.movedown()
             bird.display()
@@ -102,15 +102,14 @@ def eval_fitness(generation, config):
             pipe.move()
 
             # Pass bird's y location (bird.y) and gap's location (gap between pipes i.e. pipe.gap)  to neaural network and get the output 
-            output = net.activate((bird.y, pipe.gap))  
+             
            
-            # if output[0] is greter then 0.5 the move the bir up using bird.moveup() method
-            if output[0] > 0.5: 
-                bird.moveup()    
+            # if output[0] is greter then 0.5 the move the bird up using bird.moveup() method
+             
 
-            # increase genome fitness by 0.1            
-            genome.fitness = genome.fitness + 0.1    
-
+            # increase genome fitness by 0.1 
+            
+            
             screen.blit(images["base"],[groundx,550])
             score_text=score_font.render("Gen:"+str(gen)+" Genome:"+str(genomeCount), True, (0,0,255)) 
             screen.blit(score_text,[10,10])
